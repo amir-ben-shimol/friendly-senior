@@ -3,9 +3,8 @@
   "version": "1.0.0",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
     "start": "ts-node src/server.ts",
-    "dev": "nodemon src/server.ts"
+    "dev": "nodemon"
   },
   "keywords": [],
   "author": "",
@@ -14,12 +13,16 @@
   "dependencies": {
     "@octokit/auth-app": "^7.1.0",
     "@octokit/rest": "^21.0.1",
+    "@octokit/types": "^13.5.0",
     "@octokit/webhooks": "^13.3.0",
     "body-parser": "^1.20.2",
+    "codementorai": "^1.1.14",
     "dotenv": "^16.4.5",
     "express": "^4.19.2",
     "openai": "^4.54.0",
+    "parse-diff": "^0.11.1",
     "probot": "^13.3.6",
+    "redis": "^4.7.0",
     "typescript": "^5.5.4"
   },
   "devDependencies": {
