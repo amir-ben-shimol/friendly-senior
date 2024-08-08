@@ -46,11 +46,9 @@ export function parseDiff(diff: string): FileDiff[] {
 			chunk.changes.forEach((change) => {
 				if (change.type === 'add') {
 					if (currentBlock && change.ln === currentBlock.lineEnd + 1 && currentBlock.filePath === (to ?? 'unknown')) {
-						// Extend the current block
 						currentBlock.lineEnd = change.ln;
 						currentBlock.newCode += '\n' + change.content;
 					} else {
-						// Push the previous block and start a new block
 						if (currentBlock) {
 							fileDiffs.push(currentBlock);
 						}
@@ -59,19 +57,14 @@ export function parseDiff(diff: string): FileDiff[] {
 							filePath: to ?? 'unknown',
 							lineStart: change.ln,
 							lineEnd: change.ln,
-							originalCode: '', // Original code is empty for added lines
+							originalCode: '',
 							newCode: change.content,
 							entireFile: '',
 						};
 					}
-				} else if (change.type === 'del') {
-					// Ignore deleted lines
-				} else if (change.type === 'normal') {
-					// Handle modified lines if necessary
 				}
 			});
 
-			// Push the last block if it exists
 			if (currentBlock) {
 				fileDiffs.push(currentBlock);
 			}
@@ -85,21 +78,13 @@ export function shouldReviewFile(linesChanged: number, filePath: string, targetB
 	const fileExtension = filePath.split('.').pop();
 	const fileName = filePath.split('/').pop();
 
-	console.log('--------------------');
-
-	console.log(`Checking file ${fileName} for review...`);
-
-	console.log('---------------------');
-
-	console.log('config.excludeFiles.includes(filePath): -->', config.excludeFiles.includes(filePath));
-
 	if (linesChanged < config.minLinesChanged || linesChanged > config.maxLinesChanged) {
 		console.log(`File ${filePath} has ${linesChanged} lines changed, which is outside the configured range.`);
 
 		return false;
 	}
 
-	if (config.excludeFiles.includes(filePath)) {
+	if (config.excludeFiles.includes(fileName ?? 'unknown')) {
 		console.log(`File ${filePath} is in the exclude list.`);
 
 		return false;
