@@ -1,29 +1,30 @@
-version: "3.8"
+version: '3.8'
 
 services:
-  redis:
-    image: redis:latest
-    container_name: my-redis
-    ports:
-      - "6379:6379"
+    redis:
+        image: redis:latest
+        container_name: friendly-senior-redis
+        ports:
+            - '6379:6379'
 
-  app:
-    build: .
-    container_name: code-review-bot
-    ports:
-      - "3000:3000"
-    environment:
-      - GITHUB_APP_ID=${GITHUB_APP_ID}
-      - GITHUB_PRIVATE_KEY=${GITHUB_PRIVATE_KEY}
-      - WEBHOOK_SECRET=${WEBHOOK_SECRET}
-      - OPENAI_API_KEY=${OPENAI_API_KEY}
-      - REDIS_URL=${REDIS_URL}
-    depends_on:
-      - redis
-    volumes:
-      - .:/usr/src/app
-    command: ["pnpm", "dev"]
+    app:
+        build: .
+        container_name: friendly-senior-server
+        ports:
+            - '3000:3000'
+        environment:
+            - GITHUB_APP_ID=${GITHUB_APP_ID}
+            - GITHUB_PRIVATE_KEY=${GITHUB_PRIVATE_KEY}
+            - WEBHOOK_SECRET=${WEBHOOK_SECRET}
+            - OPENAI_API_KEY=${OPENAI_API_KEY}
+            - REDIS_URL=${REDIS_URL}
+            - PORT=${PORT}
+        depends_on:
+            - redis
+        volumes:
+            - .:/usr/src/app
+        command: ['pnpm', 'dev']
 
 networks:
-  default:
-    name: my-network
+    default:
+        name: my-network

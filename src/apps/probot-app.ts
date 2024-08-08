@@ -49,7 +49,7 @@ export const probotApp: ApplicationFunction = (app: Probot) => {
 
 			await redisClient.set(eventId, 'processed', { EX: 60 * 60 * 24 }); // Expire after 24 hours
 
-			const userConfig = await context.config<Configuration>('codementorai.yml');
+			const userConfig = await context.config<Configuration>('friendly-senior.yml');
 			const config: Configuration = { ...defaultConfig, ...userConfig };
 
 			if (!config) {

@@ -1,6 +1,6 @@
 {
 	"extends": "./tsconfig.paths.json",
-	"display": "@code-review-bot",
+	"display": "@friendly-senior",
 	"compilerOptions": {
 		"target": "ESNext",
 		"module": "CommonJS",
