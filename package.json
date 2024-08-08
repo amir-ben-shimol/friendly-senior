@@ -1,35 +1,56 @@
 {
-  "name": "code-mentor-ai",
-  "version": "1.0.0",
-  "main": "index.js",
-  "scripts": {
-    "start": "ts-node src/server.ts",
-    "dev": "nodemon"
-  },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
-  "description": "",
-  "dependencies": {
-    "@octokit/auth-app": "^7.1.0",
-    "@octokit/rest": "^21.0.1",
-    "@octokit/types": "^13.5.0",
-    "@octokit/webhooks": "^13.3.0",
-    "body-parser": "^1.20.2",
-    "codementorai": "^1.1.14",
-    "dotenv": "^16.4.5",
-    "express": "^4.19.2",
-    "openai": "^4.54.0",
-    "parse-diff": "^0.11.1",
-    "probot": "^13.3.6",
-    "redis": "^4.7.0",
-    "typescript": "^5.5.4"
-  },
-  "devDependencies": {
-    "@types/body-parser": "^1.19.5",
-    "@types/express": "^4.17.21",
-    "@types/node": "^22.1.0",
-    "nodemon": "^3.1.4",
-    "ts-node": "^10.9.2"
-  }
+	"name": "friendly-senior",
+	"version": "1.0.0",
+	"main": "index.js",
+	"keywords": [],
+	"author": "",
+	"license": "ISC",
+	"description": "",
+	"scripts": {
+		"start": "tsx src/main.ts",
+		"dev": "nodemon"
+	},
+	"dependencies": {
+		"@octokit/auth-app": "7.1.0",
+		"@octokit/rest": "21.0.1",
+		"@octokit/types": "13.5.0",
+		"@octokit/webhooks": "13.3.0",
+		"@typescript-eslint/eslint-plugin": "7.17.0",
+		"@typescript-eslint/parser": "7.17.0",
+		"body-parser": "1.20.2",
+		"dotenv": "16.4.5",
+		"eslint": "8.57.0",
+		"eslint-config-prettier": "9.1.0",
+		"eslint-plugin-deprecation": "3.0.0",
+		"eslint-plugin-i18next": "6.0.9",
+		"eslint-plugin-import": "2.29.1",
+		"eslint-plugin-jsx-a11y": "6.9.0",
+		"eslint-plugin-react": "7.32.2",
+		"eslint-plugin-react-hooks": "4.6.2",
+		"eslint-plugin-unicorn": "54.0.0",
+		"eslint-plugin-unused-imports": "4.0.1",
+		"express": "4.19.2",
+		"openai": "4.54.0",
+		"parse-diff": "0.11.1",
+		"prettier": "3.3.3",
+		"prettier-plugin-sh": "0.14.0",
+		"probot": "13.3.6",
+		"redis": "4.7.0",
+		"ts-node": "^10.9.2"
+	},
+	"devDependencies": {
+		"@types/body-parser": "1.19.5",
+		"@types/express": "4.17.21",
+		"@types/node": "22.1.0",
+		"nodemon": "3.1.4",
+		"tsconfig-paths": "^4.2.0",
+		"typescript": "~5.5.0"
+	},
+	"packageManager": "pnpm@9.6.0",
+	"engines": {
+		"npm": "please-use-pnpm",
+		"yarn": "please-use-pnpm",
+		"pnpm": ">=9",
+		"node": ">=20"
+	}
 }
