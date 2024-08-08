@@ -8,7 +8,6 @@ export async function reviewPullRequest(context: Context<'pull_request'>, pr: an
 	const { owner, repo } = context.repo();
 	const pull_number = pr.number;
 
-	// Create a check run
 	const checkRun = await context.octokit.checks.create({
 		owner,
 		repo,
@@ -70,7 +69,6 @@ export async function reviewPullRequest(context: Context<'pull_request'>, pr: an
 
 			console.log('Review comments posted successfully. Response status:', response.status);
 
-			// Update the check run to completed
 			await context.octokit.checks.update({
 				owner,
 				repo,
@@ -85,7 +83,6 @@ export async function reviewPullRequest(context: Context<'pull_request'>, pr: an
 		} catch (error) {
 			console.error('Error posting review comments:', error);
 
-			// Update the check run to completed with failure
 			await context.octokit.checks.update({
 				owner,
 				repo,
@@ -102,7 +99,6 @@ export async function reviewPullRequest(context: Context<'pull_request'>, pr: an
 	} else {
 		console.log('No review comments to post.');
 
-		// Update the check run to completed with neutral conclusion
 		await context.octokit.checks.update({
 			owner,
 			repo,

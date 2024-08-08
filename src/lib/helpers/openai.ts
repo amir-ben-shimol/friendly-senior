@@ -6,7 +6,6 @@ const openai = new OpenAI({
 });
 
 export async function generateReviewComments(originalCode: string, newCode: string, entireFile: string, config: AppConfiguration): Promise<string> {
-	console.log('inside generateReviewComments');
 	const basePrompt =
 		'You are a code reviewer. Provide concise and actionable suggestions for improvement on the new changes only. Avoid lengthy explanations. The entire file content is provided for context only. Do not make suggestions about parts of the code that are not in the new changes.';
 
