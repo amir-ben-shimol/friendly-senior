@@ -1,0 +1,10 @@
+{
+	"compilerOptions": {
+		"paths": {
+			"@/data/*": ["src/lib/data/*"],
+			"@/helpers/*": ["src/lib/helpers/*"],
+			"@/types/*": ["src/lib/types/*"],
+			"@/routes/*": ["src/lib/routes/*"]
+		}
+	}
+}
